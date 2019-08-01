@@ -1,0 +1,75 @@
+<view class="my-nav bg-white mynav fixed">
+  <view class="cu-item {{index==tabCur?'current':''}} " wx:for="{{navlist}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{item}}
+  </view>
+</view>
+
+<view class="about-list" wx:if="{{tabCur==0}}">
+  <view class="desc">
+    <view class="cu-list grid col-3">
+      <view class="cu-item">
+        <view class='avartar' data-id="{{orderDesc.customerId}}" bindtap="goLiveRoom">
+          <image lazy-load="true"class='lg cu-avatar avatar1' src="{{orderDesc.customerHeadPortrait}}"></image>
+          <image lazy-load="true"class='xl cu-avatar bgavatar' src="../../image/avatar1.png"></image>
+        </view>
+        <text>{{orderDesc.customerName}}</text>
+        <text>{{orderDesc.university}}{{orderDesc.profession}}</text>
+      </view>
+      <view class="cu-item pk">
+        <view>
+          <image lazy-load="true"class='cu-avatar' src="../../image/recipe.png"></image>
+        </view>
+        <text>{{orderDesc.applicationPosition}}</text>
+      </view>
+      <view class="cu-item ">
+        <view class='avartar' data-push="{{true}}" data-id="{{orderDesc.interviewerCustomerId}}" bindtap="goLiveRoom">
+          <image lazy-load="true"class='lg cu-avatar avatar1' src="{{orderDesc.interviewerHeadPortrait}}"></image>
+          <image lazy-load="true"class='xl cu-avatar bgavatar' src="../../image/avatar2.png"></image>
+        </view>
+
+        <text>{{orderDesc.interviewerName}}</text>
+        <text>{{orderDesc.interviewerCompany}}{{orderDesc.interviewerPosition}}</text>
+      </view>
+    </view>
+    <view class="desc-bottom">
+      <text>预约时间:2019-07-07 07:00</text>
+      <text class="text-grey">即将开始</text>
+    </view>
+  </view>
+  <view class='bottom'>————优秀的人也是有底线的————</view>
+</view>
+
+<view class="about-list" wx:if="{{tabCur==1}}">
+  <view class="desc">
+    <view class="cu-list grid col-3">
+      <view class="cu-item ">
+        <view class='avartar' data-id="{{orderDesc.customerId}}" bindtap="goLiveRoom">
+          <image lazy-load="true"class='lg cu-avatar avatar1' src="{{orderDesc.customerHeadPortrait}}"></image>
+          <image lazy-load="true"class='xl cu-avatar bgavatar' src="../../image/avatar1.png"></image>
+        </view>
+        <text>{{orderDesc.customerName}}</text>
+        <text>{{orderDesc.university}}{{orderDesc.profession}}</text>
+      </view>
+      <view class="cu-item pk">
+        <view>
+          <image lazy-load="true"class='cu-avatar' src="../../image/recipe.png"></image>
+        </view>
+        <text>{{orderDesc.applicationPosition}}</text>
+      </view>
+      <view class="cu-item ">
+        <view class='avartar' data-id="{{orderDesc.interviewerCustomerId}}" bindtap="goLiveRoom">
+          <image lazy-load="true"class='lg cu-avatar avatar1' src="{{orderDesc.interviewerHeadPortrait}}"></image>
+          <image lazy-load="true"class='xl cu-avatar bgavatar' src="../../image/avatar2.png"></image>
+        </view>
+
+        <text>{{orderDesc.interviewerName}}</text>
+        <text>{{orderDesc.interviewerCompany}}{{orderDesc.interviewerPosition}}</text>
+      </view>
+    </view>
+    <view class="desc-bottom">
+      <text>预约时间:2019-07-07 07:00</text>
+      <text class="text-grey">即将开始</text>
+    </view>
+  </view>
+  <view class='bottom'>————优秀的人也是有底线的————</view>
+</view>

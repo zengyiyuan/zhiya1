@@ -1,0 +1,240 @@
+/**index.wxss**/
+page {
+  width: 100%;
+  height:100%;
+  /* padding: 0 40rpx; */
+  box-sizing: border-box;
+  overflow: scroll;
+}
+.mycontent {
+  margin-top: 120rpx;
+}
+.mysearch {
+  background-color: #fff;
+  width: 100%;
+  height: 76rpx;
+  top: 0;
+  padding: 60rpx 0rpx;
+  position: fixed;
+  z-index: 9999; 
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+ 
+}
+.myform {
+  align-content: center;
+}
+.mysearch input {
+  background-color: #f4f4f4;
+  /* height: 1.6rem; */
+  border-radius: 20rpx;
+
+}
+.page .mysearch .cu-bar {
+  padding-left: 20rpx;
+}
+.mysearch .action {
+  margin: 0;
+}
+.mysearch .cu-btn {
+  background-color: #fff;
+  padding: 0;
+  font-size: 30rpx; 
+}
+.mysearch .search-form {
+  position: relative;
+  justify-content: center;
+}
+.mysearch .search {
+  position: absolute;
+  top: 0;
+  left: 0rpx;
+  width: 100%;
+}
+.mysearch .search .icon-search {
+  position: absolute;
+  top: 0;
+  right: 10rpx;
+}
+.mysearch .search-form input {
+  width: 100%;
+  padding-left:20rpx;
+  font-size: 30rpx;
+  box-sizing: border-box; 
+  /* text-align: center; */
+}
+.mysearch .searchwords {
+  font-size: 30rpx;
+}
+.myswiper {
+  margin-top: 120rpx;
+  /* margin-bottom: 20rpx; */
+  height: 240rpx;
+  overflow: hidden;
+}
+.myswiper image {
+  width: 100%;
+  height: 240rpx!important;
+}
+.myswiper swiper {
+  height: 240rpx;
+}
+
+/* 热门搜索 */
+.searchDetail {
+  padding: 120rpx 30rpx;
+  /* margin-top: 160rpx; */
+  background-color: #fff;
+}
+.box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bar {
+  border-radius: 35rpx;
+  text-align: center;
+  padding: 12rpx 45rpx;
+  margin: 13rpx 4rpx;
+  background-color: #F5F5F5;
+}
+.current {
+  background-color: #00BCD4;
+  color: #fff;
+}
+.hr {
+  /* width: 90%; */
+  height: 1rpx;
+  background-color: #ccc;
+  margin: 30rpx 0rpx;
+}
+.history {
+  display: flex;
+  justify-content: space-between;
+}
+.myhot,
+.history {
+  font-size: 36rpx;
+  margin: 10rpx;
+}
+/* 热门视频 */
+.hot {
+  /* margin-top: 120rpx; */
+  background-color: #fff;
+}
+.face {
+  margin-top: 18rpx;
+  background-color: #fff;
+}
+.hot .title,
+.face .title {
+    padding: 30rpx;
+    position: relative;
+}
+.hot .title text,
+.face .title text {
+    font-size: 18px;
+    color: #333;
+    font-weight: 700;
+}
+.hot .title .icon,
+.face .title .icon {
+    position: absolute;
+    right: 30rpx;
+    color: #ddd;
+    margin-top: 10rpx;
+}
+.cu-card.case .image .cu-tag {
+position:absolute;
+right:20rpx;
+top:0;
+}
+.cu-card.case .image .cu-bar {
+position:absolute;
+bottom:0;
+right: 0;
+text-align: right;
+background-color:transparent;
+word-wrap:normal;
+text-overflow:ellipsis;
+white-space:nowrap;
+}
+.hot .image .cu-bar text,
+.face .image .cu-bar text {
+  position:absolute;
+  bottom:10rpx;
+  right: 20rpx;
+  text-align: right;
+}
+.hot .cu-list.menu-avatar>.cu-item,
+.face .cu-list.menu-avatar>.cu-item {
+padding-left:0rpx;
+/* height:110rpx; */
+color: #000;
+}
+.hot .image {
+  border-radius: 20rpx;
+  overflow: hidden;
+  height: 360rpx;
+}
+.hot image {
+  height: 360rpx!important;
+  border-radius:20rpx; 
+}
+.hot .cu-card>.cu-item,
+.face .cu-card>.cu-item {
+  position:relative;
+  margin: 0rpx 30rpx;
+  border-radius: 10rpx;
+
+}
+.cu-item .needPay{
+  position:absolute;
+  z-index:1;
+  right:20rpx;
+  top:0;
+  padding:0 10rpx;
+  font-size:24rpx;
+  line-height:36rpx;
+  color:#fff;
+  background:#eab94a;
+  border-radius: 0 0 12rpx 12rpx;
+}
+.face .cu-card.case {
+  margin: 0 30rpx;
+}
+.face .cu-card.case>.cu-item {
+  margin: 0;
+}
+.face .cu-card>.cu-item:nth-of-type(2n+1) {
+  padding-right: 10rpx;
+}
+.face .cu-card>.cu-item:nth-of-type(2n) {
+  padding-left: 10rpx;
+}
+.face {
+  margin-bottom:160rpx; 
+}
+.face .image {
+  height: 194rpx;
+  border-radius: 26rpx;
+  overflow: hidden; 
+}
+.face image {
+  height: 194rpx !important;
+}
+.facetitle ,
+.facewriter {
+   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space:nowrap;
+  /* height: 500rpx; */
+}
+.bottom {
+  text-align: center;
+  color: #bbb;
+  padding: 30rpx;
+}

@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<search-page bindchangeFlag="changeFlag" bindsaveWords="saveWords" bindemitSearch="searchDatas"></search-page>
+<view class='mycontent' wx:if="{{flag}}">
+  <!-- 轮播图 -->
+  <view class='myswiper'>
+    <swiper class=" {{DotStyle?'square-dot':'round-dot'}}"  circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{swiper}}" wx:key="index" catchtap="goBanner" data-url="{{item.bannerUrl}}">
+        <image lazy-load="true" src="{{item.bannerImg}}" mode='widthFix'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 热门视频 -->
+  <view class="hot">
+    <view class="meeting-mode">
+      <view class="title">
+        <text>热门约面</text>
+        <text class="icon icon-right" catchtap='goReservation'></text>
+      </view>
+      <view class="meeting-container" id="interviewOrderVedioList">
+        <view class="cu-card case {{isCard?'no-card':''}}">
+          <view wx:for="{{orderList}}" wx:key="index" class="cu-item" data-id="{{item.orderId}}" data-customerid="{{item.customerId}}" bindtap="goOrderDesc">
+            <view wx:if="{{!isOpen&&item.inspectPrice&&item.inspectPrice>0}}" class="needPay">付费</view>
+            <view class='image'>
+              <image lazy-load="true" src="{{item.orderImg}}" mode="widthFix"></image>
+              <!-- <view class="cu-tag bg-yellow">vip</view> -->
+              <view class='cu-bar bg-shadeBottom'>
+                <text>{{item.inspectNum||0}}人观看</text>
+              </view>
+            </view>
+            <view class="cu-list menu menu-avatar">
+              <view class="cu-item">
+                <view class='content flex-sub'>
+                  <view class='text-black text-overhide'>{{item.title}}</view>
+                  <view class='text-grey text-sm flex justify-between text-overhide'>
+                    {{item.keyWords}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 面试视频 -->
+  <view class="face">
+    <view class="meeting-mode">
+      <view class="title">
+        <text>面试视频</text>
+        <text class="icon icon-right" catchtap='goVideo'></text>
+      </view>
+      <view class="meeting-container" id="interviewOrderVedioList">
+        <view class="grid col-2 cu-card case {{isCard?'no-card':''}}">
+          <view wx:for="{{videoList}}" wx:key="index" class="cu-item" data-videoid="{{item.vedioId}}" catchtap='goVideoDesc'>
+            <view class='image'>
+              <image lazy-load="true" src="{{item.vedioImg}}" mode="widthFix"></image>
+              <view class='cu-bar'>
+                <text class='text-white'>{{item.visitNum||0}}人观看</text>
+              </view>
+            </view>
+            <view class="cu-list menu menu-avatar">
+              <view class="cu-item">
+                <view class='content flex-sub'>
+                  <view class='text-black facetitle text-overhide'>{{item.title}}</view>
+                  <view class='text-grey text-sm flex justify-between facewriter text-overhide'>
+                    {{item.writer}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom'>————优秀的人也是有底线的————</view>

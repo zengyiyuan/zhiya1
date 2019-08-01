@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/video/video",
+    "pages/orderDesc/orderDesc",
+    "pages/authorize/authorize",
+    "pages/orderPay/orderPay",
+    "pages/success/success",
+    "pages/my/my",
+    "pages/myOrder/myOrder",
+    "pages/reservation/reservation",
+    "pages/myfavor/myfavor",
+    "pages/myAbout/index",
+    "pages/liveRoom/live",
+    "pages/room/room",
+    "pages/myEarnings/myEarnings",
+    "pages/fail/fail",
+    "pages/user/user",
+    "pages/userDetail/detail",
+    "pages/bioDetail/detail",
+    "pages/videoDesc/videoDesc",
+    "pages/watchList/list",
+    "pages/coupon/coupon",
+    "pages/banner/banner"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "selectedColor":"#00BCD4",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/icon_home@2x.png",
+        "selectedIconPath": "image/icon_home_selected@2x.png"
+      },
+      {
+        "pagePath": "pages/reservation/reservation",
+        "text": "约面",
+        "iconPath": "image/icon_recipe@2x.png",
+        "selectedIconPath": "image/icon_recipe_selected@2x.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "视频",
+        "iconPath": "image/icon_message@2x.png",
+        "selectedIconPath": "image/icon_message_seleted@2x.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "image/icon_me@2x.png",
+        "selectedIconPath": "image/icon_me_selected@2x.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

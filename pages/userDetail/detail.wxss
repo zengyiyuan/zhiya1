@@ -1,0 +1,202 @@
+/* pages/userDetail/detail.wxss */
+page {
+  width: 100%;
+  height: 100%;
+}
+.fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 998;
+  background-color: #f4f4f4;
+} 
+.user-part {
+  position: relative;
+  width: 100%;
+  color:#fff;
+}
+
+.user-part .user-bg {
+  width: 100%;
+  height: 360rpx !important;
+}
+.user-part .user-info{
+  position:absolute;
+  bottom:20rpx;
+  left:30rpx;
+}
+.user-info .name{
+  font-size:48rpx;
+  line-height:66rpx;
+  font-weight: bold;
+}
+.user-info .intro{
+  font-size:24rpx;
+  line-height:34rpx;
+}
+.desc {
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+}
+
+.desc .cu-avatar {
+  background-color: #fff;
+}
+
+.desc .avartar {
+  position: relative;
+  height: 128rpx;
+  /* overflow: hidden; */
+}
+
+.desc .cu-item {
+  border: 1rpx solid #fff;
+}
+.pk {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pk image {
+  width: 108rpx;
+  height: 50rpx;
+}
+
+/* 相关面约 */
+
+.hot {
+  /* margin-top: 120rpx; */
+  background-color: #fff;
+}
+.intro-text{
+  font-size:28rpx;
+  line-height:44rpx;
+  color:#666;
+}
+.face {
+  margin-top: 18rpx;
+}
+
+.hot .title {
+  padding: 30rpx 0;
+  position: relative;
+}
+
+.hot .title text, .info .title {
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+}
+.info .title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hot .title .icon {
+  position: absolute;
+  right: 30rpx;
+  color: #ddd;
+  margin-top: 10rpx;
+}
+
+.cu-card.case .image .cu-tag {
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+}
+
+.cu-card.case .image .play-bar {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  text-align: right;
+  color:#fff;
+}
+.cu-card.case .image .play-bar .icon{
+  margin-right:12rpx;
+}
+.hot .cu-list.menu-avatar>.cu-item {
+  padding-left: 0rpx;
+  /* height: 110rpx; */
+  color: #000;
+}
+
+.hot .text-grey, .line-grey, .lines-grey {
+  color: #000;
+}
+
+.hot .text-gray, .line-gray, .lines-gray {
+  color: #8799a3;
+}
+
+.hot .image {
+  border-radius: 20rpx;
+  overflow: hidden;
+  height: 204rpx;
+}
+.hot image {
+  height: 204rpx!important;
+}
+.hot .cu-card>.cu-item {
+  float:left;
+  position:relative;
+  width:330rpx;
+  margin:0;
+  border-radius: 10rpx;
+}
+.hot .cu-card>.cu-item:nth-child(2n+1) {
+  margin-right:30rpx;
+}
+.cu-item .needPay{
+  position:absolute;
+  z-index:1;
+  right:20rpx;
+  top:0;
+  padding:0 10rpx;
+  font-size:24rpx;
+  line-height:36rpx;
+  color:#fff;
+  background:#eab94a;
+  border-radius: 0 0 12rpx 12rpx;
+}
+.detail-title{
+  line-height:36rpx;
+}
+.info {
+  /* padding: 0 30rpx; */
+  background-color: #fff;
+}
+
+.info .title {
+  padding: 20rpx 30rpx;
+  border-top: 1rpx solid #f6f6f6;
+  border-bottom: 10rpx solid #f6f6f6;
+}
+.info .bio .check{
+  font-size:28rpx;
+  color:#999;
+}
+.info .content {
+  padding: 30rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid #f6f6f6;
+}
+.info .content .icon{
+  margin-right:32rpx;
+  font-size:28rpx;
+  color:#999;
+}
+.bottom {
+  text-align: center;
+  color: #bbb;
+  padding: 30rpx;
+}
+.info .content {
+  position: relative;
+}
+.more {
+  position: absolute;
+  right: 0rpx;
+  top: 30rpx;
+
+}

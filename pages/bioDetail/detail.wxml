@@ -1,0 +1,14 @@
+
+<!-- 用户详情 -->
+<!-- <view class='fixed'> -->
+  <!-- <view class='user-part'>
+    <image class="user-bg" lazy-load="true" src="{{userInfo.orderImg?userInfo.orderImg:'../../image/bg_character@2x.png'}}"></image>
+    <view class="user-info">
+      <view class="name">{{userInfo.customerNickname}}</view>
+      <view class="intro">{{userInfo.customerInfo&&userInfo.customerInfo.company?userInfo.customerInfo.company+userInfo.customerInfo.position:''}}</view>
+    </view>
+  </view> -->
+  <image class="bio-img" src="{{bioUrl}}"></image>
+<!-- </view> -->
+<!-- 底部bar -->
+<!-- <view class='bottom'>————优秀的人也是有底线的————</view> -->

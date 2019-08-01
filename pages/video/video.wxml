@@ -1,0 +1,71 @@
+<view class='mask' wx:if="{{show}}" bindtap='changeShow'></view>
+<view  hidden="{{show}}"><search-page bindchangeFlag="changeFlag" bindsaveWords="saveWords" bindemitSearch="searchDatas"></search-page></view>
+
+<view class='mycontent' wx:if="{{flag}}">
+  <!-- 轮播图 -->
+  <view class='myswiper'>
+    <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{swiper}}" wx:key="index" catchtap="goBanner" data-url="{{item.bannerUrl}}">
+        <image src="{{item.bannerImg}}" mode='widthFix'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- tab -->
+  <view class="nav {{show?'mynav':''}}">
+    <view class="nav-son {{shownavindex == 1&show? 'active' : ''}}" bindtap="showCity">
+      <view class="content">全部</view>
+      <view class="icon icon-playfill"></view>
+    </view>
+    <view class="nav-son {{shownavindex == 3&show? 'active' : ''}}" bindtap="select" data-nav="3">
+      <view class="content">筛选</view>
+      <view class="icon icon-playfill"></view>
+    </view>
+  </view>
+  <!--  -->
+  <view class='wrapper' wx:if="{{tabCur==0&show}}">
+    <view class="sort {{sortsCur==index?'current':''}}" wx:for="{{sorts}}" bindtap="getsort" data-sort="{{index}}" wx:key="index">{{item}}</view>
+  </view>
+
+  <view class='searchDetail myselect' wx:if="{{tabCur==2&show}}">
+    <view class='myhot'>视频内容包含（可多选）</view>
+    <view class='box'>
+      <view class="{{index==selectCur?'current bar':'bar'}}" wx:for="{{select}}" wx:key="index" bindtap='selectCur' data-id="{{item.classifyId-1}}">{{item.name}}</view>
+    </view>
+    <view class='form-btn'>
+      <view class='btn-reset text-center padding' bindtap='selectEmpty'>重置</view>
+      <view class='btn-submit text-center padding' bindtap='selectconfirm'>确定</view>
+    </view>
+  </view>
+  <!-- 热门视频 -->
+  <view class="face hot">
+    <view class="meeting-mode">
+      <view class="meeting-container" id="interviewOrderVedioList">
+        <view class="grid col-2 cu-card case {{isCard?'no-card':''}}">
+          <view wx:for="{{videoList}}" wx:key="index" class="cu-item" data-videoid="{{item.vedioId}}" catchtap='goVideoDesc'>
+            <view class='image'>
+              <image src="{{item.vedioImg}}"></image>
+              <view class='cu-bar bg-shadeBottom'>
+                <text>{{item.visitNum||0}}人观看</text>
+              </view>
+            </view>
+            <view class="cu-list menu menu-avatar">
+              <view class="cu-item">
+                <view class='content flex-sub'>
+                  <view class='text-grey facetitle text-overhide'>{{item.title}}</view>
+                  <view class='text-gray text-sm flex justify-between facewriter text-overhide'>
+                    {{item.writer}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bottom'>————优秀的人也是有底线的————</view>
+</view>
+
+
+<!-- </view> -->

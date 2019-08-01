@@ -1,0 +1,38 @@
+<view class="live-page">
+  <live-pusher id="pusher" wx:if="{{canPush}}" src="{{pushLiveUrl}}" mode="RTC"  bindstatechange="statechange" enable-camera binderror="error" style="width: 100%; height: 400rpx">
+    <cover-view class="top-handle">
+      <cover-view class="info-item">
+        <cover-image class="avatar" src="../../image/1_29.jpg"></cover-image>
+        <cover-view class="count">
+          <cover-view class="time">00:00</cover-view>
+          <cover-view class="support">123</cover-view>
+        </cover-view>
+        <cover-view class="add"></cover-view>
+      </cover-view>
+      <cover-view class="handle-item" catchtap='goBack'>
+        <cover-image class="handle-img" src="../../image/btn_close@2x.png"></cover-image>
+      </cover-view>
+    </cover-view>
+    <cover-view class="bottom-handle">
+      <cover-view class="handle-item" catchtap="bindPause">
+        <cover-image class="handle-img" src="../../image/ic_comments@2x.png"></cover-image>
+      </cover-view>
+      <cover-view class="handle-item" catchtap="bindStop">
+        <cover-image class="handle-img" src="../../image/ic_camera@2x.png"></cover-image>
+      </cover-view>
+      <cover-view class="handle-item" catchtap="bindResume">
+        <cover-image class="handle-img" src="../../image/ic_recording@2x.png"></cover-image>
+      </cover-view>
+      <cover-view class="handle-item">
+        <cover-image class="handle-img" src="../../image/ic_beauty@2x.png"></cover-image>
+      </cover-view>
+      <cover-view class="handle-item">
+        <cover-image class="handle-img" src="../../image/ic_more@2x.png"></cover-image>
+      </cover-view>
+      <cover-view class="handle-item">
+        <cover-image class="handle-img" src="../../image/ic_full@2x.png"></cover-image>
+      </cover-view>
+    </cover-view>
+  </live-pusher>
+  <live-player wx:if="{{canPlay}}" src="{{playLiveUrl}}" mode="RTC" autoplay bindstatechange="statechange2" binderror="error2" style="margin-top:80rpx;width: 100%; height: 400rpx;" />
+</view>

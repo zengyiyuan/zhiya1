@@ -1,0 +1,152 @@
+<!--pages/orderDesc/orderDesc.wxml-->
+<!-- 视频框 -->
+<view class='fixed'>
+  <video wx:if="{{isPlay}}" src="{{src}}" object-fit="contain" enable-play-gesture="true" controls poster="{orderDesc.vedioImg}}" autoplay='true' bindended="handlePlayEnd"  show-fullscreen-btn="true"></video>
+  <view wx:if="{{!isPlay}}" class='mask'>
+    <image src="{{orderDesc.vedioImg}}"></image>
+    <view wx:if="{{!isEnd}}" catchtap='toPlay' class='play'>
+      <text class='icon icon-playfill text-white text-xxl'></text>
+    </view>
+  </view>
+  <view wx:if="{{isEnd}}" class="end-mask">
+    <view wx:if="{{orderId}}" class="end-middle-part" data-id="{{orderDesc.orderId}}" bindtap="goOrderDesc">
+      <view class="text">本视频已播放完，点击查看完整版</view>
+      <view>
+        <image src="../../image/btn_complete@2x.png"></image>
+      </view>
+    </view>
+    <view wx:if="{{!orderId}}" catchtap='toPlay' class='play'>
+      <text class='icon icon-playfill text-white text-xxl'></text>
+    </view>
+    <view class="refresh-part" catchtap='toPlay'>
+      <text class='icon icon-refresh'></text>
+      <text>重播</text>
+    </view>
+  </view>
+  <!-- tab切换 -->
+  <scroll-view scroll-x class="bg-white nav">
+    <view class='flex text-center'>
+      <view class="cu-item flex-sub {{index==TabCur?'text-cyan cur':''}}" wx:for="{{tab}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+        {{ item}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 不同tab下的内容 -->
+<!-- 商品详细 -->
+<view class='desc' wx:if="{{TabCur==0}}">
+  <!-- 面试简介 -->
+  <view class='info'>
+    <view class='share-order'>
+      <text>{{orderDesc.title}}</text>
+      <text wx:if="{{canShare}}" catchtap='changeshare' class='icon icon-share lg iconshare text-cyan'></text>
+    </view>
+    <view class="video-desc text-grey">{{orderDesc.description}}</view>
+  </view>
+  <view class="order-info" wx-if="{{hasOrderId}}">
+    <view class="title">
+      <text>完整约面</text>     
+    </view>
+    <view class="order-image" catchtap="goOrderDesc" data-id="{{orderDesc.orderId}}">
+      <image src="{{orderInfo.orderImg}}"></image>
+      <text class="need-pay">付费</text>
+    </view>
+  </view>
+  <view class="face hot">
+    <view class="meeting-mode">
+      <view class="title">
+        <text>相关推荐</text>     
+      </view>
+      <view class="meeting-container" id="interviewOrderVedioList">
+        <view class="grid col-2 cu-card case {{isCard?'no-card':''}}">
+          <view wx:for="{{videoList}}" wx:key="index" class="cu-item" data-videoid="{{item.vedioId}}" catchtap='goVideoDesc'>
+            <view class='image'>
+              <image src="{{item.vedioImg}}"></image>
+              <view class='cu-bar bg-shadeBottom'>
+                <text>{{item.visitNum||0}}人观看</text>
+              </view>
+            </view>
+            <view class="cu-list menu menu-avatar">
+              <view class="cu-item">
+                <view class='content flex-sub'>
+                  <view class='text-grey facetitle'>{{item.title}}</view>
+                  <view class='text-gray text-sm flex justify-between facewriter'>
+                    {{item.writer}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 评论 -->
+<view class='comment' wx:if="{{TabCur==1}}">
+  <view class="cu-list menu menu-avatar comment solids-top">
+    <view class="cu-item" wx:for="{{commentList}}" wx:key="index">
+      <view class="cu-avatar round" style="background-image:url({{item.customerHeadPortrait}});"></view>
+      <view class='content'>
+        <view class='text-grey'>{{item.customerName}}</view>
+        <view class='text-gray text-content text-df'>
+          {{item.evaluateContent}}
+        </view>
+        <view class='margin-top-sm flex justify-between'>
+          <view class='text-gray text-df'>{{item.createDate}}</view>
+          <view>
+            <!-- <text class="icon icon-appreciate{{!isZan?'fill':''}} text-{{!isZan?'red':'gray'}}"></text>
+            <text class="icon icon-messagefill text-gray margin-left-sm" bandtap="comment"></text> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 底部评论bar -->
+<view class='bottom'>————优秀的人也是有底线的————</view>
+<view class="cu-bar bg-white search mybuttom" style='position:fixed;z-index:1; bottom:0;width: 750rpx;' wx:if="{{!shareShow}}">
+    <!-- <text class="icon icon-write text-xxl"></text> -->
+    <!-- <textarea  placeholder="评论" confirm-type="send" bindconfirm='toComment' value='{{defaultValue}}' bindfocus='changeFocus' class='{{isFocus?"focusInput":""}}' fixed='true'></textarea> -->
+    <view class="cu-form-group top round mytextarea" >
+    <view class='title icon icon-write text-xxl'></view>
+    <view class='overhidden'>
+    <textarea placeholder="说点什么吧" maxlength="-1"auto-height='true' value='{{defaultValue}}' bindinput="setValue" bindfocus='changeFocus' class='{{isFocus?"focusInput":""}}' fixed='true' show-confirm-bar="false"></textarea>
+    </view>
+  </view>
+  <view class='text-xxl mystatu' wx:if="{{!isFocus}}">
+    <text class="icon icon-favor{{isFavor?'fill':''}} text-{{isFavor?'cyan':'gray'}}" catchtap='setFavor'></text>
+    <text class=" icon icon-appreciate{{isZan?'fill':''}} text-{{isZan?'cyan':'gray'}}" catchtap='setZan'></text>
+  </view>
+  <view class='text-xxl mystatu' wx:if="{{isFocus}}" catchtap='toComment'>
+    <image src="../../image/iconsend.png" ></image>
+  </view>
+  
+</view>
+<view hidden="{{!shareShow}}">
+  <view class='shareMask' catchtouchmove='true' >
+    <view class='saveShare text-center text-blue bg-white text-xl'>
+      <view bindtap='previewImg'>保存图片分享至朋友圈</view>
+      <view catchtap='hideshare'>取消</view>
+    </view>
+  </view>
+  <canvas canvas-id='share' disable-scroll="false" bindtouchmove="true" style='width:{{screenWidth}}px;height:{{screenHeight}}px'></canvas>
+</view>
+
+<!-- 弹框提示 -->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>提示</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon icon-close text-cyan'></text>
+      </view>
+    </view>
+    <view class='padding-xl'>
+      请输入评论内容
+    </view>
+  </view>
+</view>

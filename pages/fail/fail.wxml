@@ -1,0 +1,13 @@
+<view class="mys">
+  <image class="pay-icon" src="../../image/icon_pay_failure@2x.png"></image>
+  <view class='title text-xxl text-center padding'>
+    <text>支付失败</text>
+  </view>
+   <view class='title text-xxl text-center padding'>
+    <text class='text-gray'>您可以到个人中心，我的订单中继续支付</text>
+  </view>
+  <view class='handle-part'>
+    <button class='pay-button line-cyan' bindtap="goOrderDesc">重新支付</button>
+    <button class='pay-button line-grey text-black' bindtap="goMyOrder">查看订单</button>
+  </view>
+</view>

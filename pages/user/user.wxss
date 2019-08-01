@@ -1,0 +1,53 @@
+page {
+  height: 100%;
+  background-color: #f8f8f8;
+}
+.cu-list.menu {
+  margin-left: 0 ;
+  margin-right: 0 ;
+  border-radius: 0;
+}
+.userInfo {
+  padding: 60rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.img{
+  position: relative;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.img image {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.img button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+.name input {
+  /* width: 80%; */
+  padding: 30rpx 40rpx;
+  line-height: 90rpx;
+  height: 100rpx;
+  background-color: #fff;
+  font-size: 36rpx;
+  margin-bottom: 40rpx;
+  box-sizing: border-box;
+}
+.name button {
+  width: 90%;
+  /* border-radius:24%; */
+}

@@ -1,0 +1,14 @@
+<view class="fixed">
+  <view class="watch-list" wx:if="{{dataList&&dataList.length}}">
+    <view wx:for="{{dataList}}" wx:key="index" class="watch-item">
+      <view class='avatar'>
+        <image lazy-load="true" src="{{item.customerHeadPortrait}}"></image>
+      </view>
+      <view class="info">
+        <view class="name">{{item.customerName}}</view>
+        <view class="introduce">{{item.inspectCode}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom' wx:if="{{dataList.length>6}}">————优秀的人也是有底线的————</view>

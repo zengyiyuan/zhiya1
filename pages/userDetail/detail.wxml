@@ -1,0 +1,54 @@
+
+<!-- 用户详情 -->
+<!-- <view class='fixed'> -->
+  <view class='user-part'>
+    <image class="user-bg" lazy-load="true" src="{{userInfo.orderImg?userInfo.orderImg:'../../image/bg_character@2x.png'}}"></image>
+    <view class="user-info">
+      <view class="name">{{userInfo.customerNickname}}</view>
+      <view class="intro">{{userInfo.customerInfo&&userInfo.customerInfo.company?userInfo.customerInfo.company+userInfo.customerInfo.position:''}}</view>
+    </view>
+  </view>
+<!-- </view> -->
+<view class='desc'>
+  <!-- 相关面约 -->
+  <view class="hot about">
+    <view class="meeting-mode">
+      <view class="title">
+        <text>个人介绍</text>
+      </view>
+      <view wx:if="{{userInfo.customerInfo&&userInfo.customerInfo.introduction}}" class="intro-text">
+        {{userInfo.customerInfo.introduction}}
+      </view>
+      <view wx:else class="intro-text">无</view>
+      <view class="title">
+        <text>推荐约面</text>
+      </view>
+      <view class="meeting-container" id="interviewOrderVedioList">
+        <view class="cu-card case {{isCard?'no-card':''}}">
+          <view wx:for="{{orderList}}" wx:key="index" class="cu-item" data-id="{{item.orderId}}" bindtap="goOrderDesc">
+          <view vx:if="{{item.inspectPrice&&item.inspectPrice>0}}" class="needPay">付费</view>
+            <view class='image'>
+              <image lazy-load="true"src="{{item.orderImg}}" mode="widthFix"></image>
+              <view class='play-bar'>
+                <text class="icon icon-playfill"></text>
+                <text class="play-num">{{item.inspectNum?item.inspectNum>10000?item.inspectNum/10000+'万':item.inspectNum:0}}</text>
+              </view>
+            </view>
+            <view class="cu-list menu menu-avatar">
+              <view class="cu-item">
+                <view class='content flex-sub'>
+                  <view class='text-grey detail-title text-half-overhide'>{{item.title}}</view>
+                  <view class='text-gray text-sm flex justify-between text-half-overhide'>
+                    {{item.keyWords}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 底部评论bar -->
+<view class='bottom'>————优秀的人也是有底线的————</view>

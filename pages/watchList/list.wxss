@@ -1,0 +1,37 @@
+.fixed{
+  background: #fff;
+}
+.watch-list{
+  padding-left:20rpx;
+}
+.watch-item{
+  display:flex;
+  align-items:center;
+  padding:20rpx 0 20rpx 20rpx;
+  border-bottom:2rpx solid #F4F4F4;
+}
+.watch-item .avatar{
+  margin-right:20rpx;
+}
+.watch-item .name{
+  margin-bottom:12rpx;
+  font-size:32rpx;
+  line-height:44rpx;
+  color:#111;
+}
+.watch-item .introduce{
+  font-size:24rpx;
+  line-height:34rpx;
+  color:#999;
+}
+.watch-item image{
+  width:100rpx;
+  height:100rpx;
+  border-radius: 50%;
+}
+.bottom{
+  text-align:center;
+  color:#bbb;
+  padding:30rpx;
+
+}

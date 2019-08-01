@@ -1,0 +1,109 @@
+/* 热门搜索 */
+@import "../component.wxss";
+@import "../../icon.wxss";
+.mysearch {
+  background-color: #fff;
+  width: 100%;
+  height: 76rpx;
+  top: 0;
+  padding: 60rpx 0rpx;
+  position: fixed;
+  z-index: 6; 
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+ 
+}
+.myform {
+  align-content: center;
+}
+.mysearch .my-input {
+  background-color: #f4f4f4;
+  border-radius: 20rpx;
+}
+.page .mysearch .cu-bar {
+  padding-left: 20rpx;
+}
+.mysearch .action {
+  margin: 0;
+}
+.mysearch .cu-btn {
+  background-color: #fff;
+  padding: 0;
+  font-size: 30rpx; 
+}
+.mysearch .search-form {
+  position: relative;
+  justify-content: center;
+}
+.mysearch .search {
+  position: absolute;
+  top: 0;
+  left: 0rpx;
+  width: 100%;
+}
+.mysearch .search .icon-search {
+  position: absolute;
+  top: 0;
+  right: 10rpx;
+}
+.mysearch .search-form .my-input {
+  width: 100%;
+  padding-left:20rpx;
+  font-size: 30rpx;
+  box-sizing: border-box; 
+  /* text-align: center; */
+}
+.mysearch .searchwords {
+  font-size: 30rpx;
+}
+.myswiper {
+  margin-top: 120rpx;
+  /* margin-bottom: 20rpx; */
+  height: 240rpx;
+  overflow: hidden;
+}
+
+.searchDetail {
+  position: absolute;
+  z-index:100;
+  width:100%;
+  padding: 0 30rpx 120rpx 30rpx;
+  /* margin-top: 160rpx; */
+  background-color: #fff;
+}
+.box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bar {
+  border-radius: 35rpx;
+  text-align: center;
+  padding: 12rpx 45rpx;
+  margin: 13rpx 4rpx;
+  background-color: #F5F5F5;
+}
+.current {
+  background-color: #00BCD4;
+  color: #fff;
+}
+.hr {
+  /* width: 90%; */
+  height: 1rpx;
+  background-color: #ccc;
+  margin: 30rpx 0rpx;
+}
+.history {
+  display: flex;
+  justify-content: space-between;
+}
+.myhot,
+.history {
+  font-size: 36rpx;
+  margin: 10rpx;
+}
+.icon-search {
+  width: 64rpx;
+  height: 64rpx;
+  z-index: 7;
+}

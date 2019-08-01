@@ -1,0 +1,382 @@
+/* pages/orderDesc/orderDesc.wxss */
+page {
+  width: 100%;
+  height: 100%;
+}
+.shareMask {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  overflow: hidden;
+}
+.saveShare {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 160rpx;
+  line-height: 80rpx;
+  /* z-index: 1100; */
+}
+.saveShare>view:last-child {
+  border-top: 1rpx solid #eee;
+
+}
+video,
+.mask {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  background-color: #f4f4f4;
+}
+canvas {
+  position: fixed;
+  top: 45%;
+  width: 260px;
+  height: 400px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  z-index: 1000;
+}
+.fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 998;
+  /* height: 225px; */
+  background-color: #f4f4f4;
+} 
+.mask image {
+  width: 100%;
+  height: 400rpx;
+}
+.mask .need-pay-part{
+  position: absolute;
+  z-index:10;
+  width:600rpx;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  white-space: no-wrap;
+  color:#fff;
+  text-align: center;
+}
+.mask .need-pay-part .text{
+  margin-bottom:20rpx;
+  font-size:28rpx;
+  line-height:40rpx;
+}
+.mask .playing-text{
+  position:absolute;
+  left:20rpx;
+  bottom:20rpx;
+  max-width:400rpx;
+  font-size:24rpx;
+  line-height:34rpx;
+  color:#fff;
+}
+.mask .playing-text .pay-text{
+  padding:0 12rpx;
+}
+.refresh-part{
+  margin-right:20rpx;
+}
+.refresh-part .icon{
+  margin-right:8rpx;
+}
+.mask .watch-num{
+  position: absolute;
+  right:20rpx;
+  bottom:20rpx;
+  font-size:22rpx;
+  line-height:32rpx;
+  color:#fff;
+}
+/* .mask button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: transparent;
+  border-radius: 60rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+} */
+.mask .play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  /* background-color: transparent; */
+  border-radius:50%; 
+  padding: 30rpx;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* .desc image.avatar1 {
+   background-image: url(../../image/avatar1.png);
+} */
+
+.nav {
+  height: 90rpx;
+  font-size: 33rpx;
+}
+
+.desc {
+  margin-top: 490rpx;
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+}
+
+.desc .cu-avatar {
+  background-color: #fff;
+}
+
+.desc .avartar {
+  position: relative;
+  height: 128rpx;
+  /* overflow: hidden; */
+}
+
+.desc .bgavatar, .desc .avatar1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.desc .avatar1 {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.desc .cu-item {
+  border: 1rpx solid #fff;
+}
+
+.pk {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pk image {
+  width: 108rpx;
+  height: 50rpx;
+}
+
+/* 相关面约 */
+
+.hot {
+  /* margin-top: 120rpx; */
+  background-color: #fff;
+}
+
+.face {
+  margin-top: 18rpx;
+}
+
+.hot .title {
+  padding: 30rpx;
+  position: relative;
+}
+
+.hot .title text, .info .title {
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+}
+.info .title {
+  display: flex;
+  justify-content: space-between;
+}
+.share-order{
+  display:flex;
+  align-items: center;
+}
+.share-order .iconshare{
+  padding:8rpx;
+}
+.hot .title .icon {
+  position: absolute;
+  right: 30rpx;
+  color: #ddd;
+  margin-top: 10rpx;
+}
+
+.cu-card.case .image .cu-tag {
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+}
+
+.cu-card.case .image .cu-bar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  background-color: transparent;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot .image .cu-bar text {
+  position: absolute;
+  bottom: 10rpx;
+  right: 20rpx;
+  text-align: right;
+}
+
+.hot .cu-list.menu-avatar>.cu-item {
+  padding-left: 0rpx;
+  /* height: 110rpx; */
+  color: #000;
+}
+
+.hot .text-grey, .line-grey, .lines-grey {
+  color: #000;
+}
+
+.hot .text-gray, .line-gray, .lines-gray {
+  color: #8799a3;
+}
+
+.hot .image {
+  border-radius: 20rpx;
+  overflow: hidden;
+  height: 204rpx;
+}
+.hot image {
+  height: 204rpx!important;
+}
+.hot .cu-card>.cu-item {
+  float:left;
+  position:relative;
+  width:330rpx;
+  margin:0;
+  border-radius: 10rpx;
+}
+.hot .cu-card>.cu-item:nth-child(2n+1) {
+  margin-right:30rpx;
+}
+.cu-item .needPay{
+  position:absolute;
+  z-index:1;
+  right:20rpx;
+  top:0;
+  padding:0 10rpx;
+  font-size:24rpx;
+  line-height:36rpx;
+  color:#fff;
+  background:#eab94a;
+  border-radius: 0 0 12rpx 12rpx;
+}
+.detail-title{
+  line-height:36rpx;
+}
+.info {
+  /* padding: 0 30rpx; */
+  background-color: #fff;
+}
+
+.info .title {
+  padding: 20rpx 30rpx;
+  border-top: 1rpx solid #f6f6f6;
+  border-bottom: 10rpx solid #f6f6f6;
+}
+.info .bio .check{
+  font-size:28rpx;
+  color:#999;
+}
+.info .content {
+  padding: 30rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid #f6f6f6;
+}
+.info .content .icon{
+  margin-right:32rpx;
+  font-size:28rpx;
+  color:#999;
+}
+.bio-img{
+  width:100%;
+}
+.sTitle {
+  padding-bottom: 20rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.subcontent {
+  /* text-overflow:-o-ellipsis-lastline; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.mysearch {
+  position: fixed;
+  top: none;
+  bottom: 0;
+  width: none;
+}
+.comment {
+  margin-top: 490rpx;
+}
+.mystatu>text {
+  padding-right: 13rpx;
+}
+.bottom {
+  text-align: center;
+  color: #bbb;
+  padding: 30rpx;
+}
+.info .content {
+  position: relative;
+}
+.more {
+  position: absolute;
+  right: 0rpx;
+  top: 30rpx;
+
+}
+.mystatu image {
+  width: 62rpx;
+  height: 56rpx;
+  margin-right: 10rpx;
+}
+.mybuttom {
+  min-height: 100rpx;
+  padding: 20rpx 0;
+}
+.mybuttom .mytextarea {
+  min-height: 100rpx;
+  background:#f5f5f5;
+  max-height:192rpx;
+  
+font-size:24rpx;
+color:#666;
+flex:1;
+display:flex;
+align-items:center;
+margin:0 20rpx;
+
+}
+.mybuttom .mytextarea textarea {
+  height: 100%;
+}
+.mybuttom .mytextarea .overhidden {
+  flex: 1;
+  max-height: 192rpx;
+  overflow: hidden;
+}

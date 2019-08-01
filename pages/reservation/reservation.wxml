@@ -1,0 +1,102 @@
+<view class='mask' wx:if="{{show}}" bindtap='changeShow'></view>
+<view  hidden="{{show}}"><search-page bindchangeFlag="changeFlag" bindsaveWords="saveWords" bindemitSearch="searchDatas"></search-page></view>
+
+<view class='mycontent' wx:if="{{flag}}">
+
+  <!-- 轮播图 -->
+  <view class='myswiper'>
+    <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}"  circular="true" autoplay="true" interval="5000" duration="500">
+     <swiper-item wx:for="{{swiper}}" wx:key="index" catchtap="goBanner" data-url="{{item.bannerUrl}}">
+        <image lazy-load="true" src="{{item.bannerImg}}" mode='widthFix'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+    <!-- tab -->
+  <view class="nav {{show?'mynav':''}}">
+    <view class="nav-son {{shownavindex == 1&show? 'active' : ''}}" bindtap="showCity">
+      <view class="content">全部</view>
+      <view class="icon icon-playfill"></view>
+    </view>
+    <view class="nav-son borders {{shownavindex == 2&show? 'active' : ''}}" bindtap="job" data-nav="2">
+      <view class="content">行业职业</view>
+      <view class="icon icon-playfill"></view>
+    </view>
+    <view class="nav-son {{shownavindex == 3&show? 'active' : ''}}" bindtap="select" data-nav="3">
+      <view class="content">筛选</view>
+      <view class="icon icon-playfill"></view>
+    </view>
+  </view>
+  <!--  -->
+  <view class='wrapper' wx:if="{{tabCur==0&show}}">
+    <view class="sort {{sortsCur==index?'current':''}}" wx:for="{{sorts}}" bindtap="getsort" data-sort="{{item.cityId}}" data-index="{{index}}" wx:key="index">{{item.cityName}}</view>
+  </view>
+  <view class='job' wx:if="{{tabCur==1&show}}">
+    <view class="quyu grid col-3">
+
+      <view class="qy quyu-left">
+        <view class="{{select1 == item.industryId ? 'current' : ''}}" wx:for="{{cityleft}}" bindtap="selectleft" data-city='{{item.industryId}}' wx:key="index">
+          {{item.industryName}}
+        </view>
+      </view>
+      <view class="qy quyu-center">
+        <view class="{{select2 == item.industryId ? 'current2' : ''}}" wx:for="{{citycenter}}" bindtap="selectcenter" data-city='{{item.industryId}}' wx:key="index">
+          {{item.industryName}}
+        </view>
+      </view>
+      <view class="qy quyu-right">
+        <view wx:for="{{cityright}}" wx:key="index" class="{{select3 == item.positionId?'current3':''}}" bindtap='selectright' data-city="{{item.industryId}}" data-position="{{item.positionId}}">
+          {{item.positionName}}
+        </view>
+      </view>
+    </view>
+    <view class='form-btn'>
+      <view class='btn-reset text-center padding' bindtap='quyuEmpty'>重置</view>
+      <!-- <view class='btn-submit text-center padding' bindtap='submitFilter'>确定</view> -->
+    </view>
+  </view>
+  <view class='searchDetail myselect' wx:if="{{tabCur==2&show}}">
+    <view class='myhot'>是否付费</view>
+    <view class='box'>
+      <view class="{{index==selectCur?'current bar':'bar'}}" wx:for="{{select}}" wx:key="index" bindtap='selectCur' data-id="{{index}}">{{item}}</view>
+    </view>
+    <view class='form-btn'>
+      <view class='btn-reset text-center padding' bindtap='selectEmpty'>重置</view>
+      <view class='btn-submit text-center padding' bindtap='selectconfirm'>确定</view>
+    </view>
+  </view>
+  <!-- 热门视频 -->
+<view class="hot">
+  <view class="meeting-mode">
+    <view class="meeting-container" id="interviewOrderVedioList">
+      <view class="cu-card case {{isCard?'no-card':''}}">
+        <view wx:for="{{orderList}}" wx:key="index" class="cu-item" data-id="{{item.orderId}}" bindtap="goOrderDesc">
+        <view wx:if="{{!isOpen&&item.inspectPrice&&item.inspectPrice>0}}" class="needPay">付费</view>
+          <view class='image'>
+            <image lazy-load="true" src="{{item.orderImg}}" mode="widthFix"></image>
+            <!-- <view class="cu-tag bg-yellow">vip</view> -->
+            <view class='cu-bar bg-shadeBottom'>
+              <text>{{item.inspectNum||0}}人观看</text>
+            </view>
+          </view>
+          <view class="cu-list menu menu-avatar">
+            <view class="cu-item">
+              <view class='content flex-sub'>
+                <view class='text-grey text-overhide'>{{item.title}}</view>
+                <view class='text-gray text-sm flex justify-between text-overhide'>
+                  {{item.keyWords}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom'>————优秀的人也是有底线的————</view>
+</view>
+
+
+
+
+<!-- </view> -->

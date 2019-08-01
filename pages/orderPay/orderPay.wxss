@@ -1,0 +1,68 @@
+page {
+  background-color: #f8f8f8;
+}
+.mask{
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 30rpx;
+  background-color: #fff;
+  /* z-index: 999; */
+  height: 225px;
+}
+.mask image {
+  width: 100%;
+  height: 360rpx;
+  border-radius: 20rpx;
+}
+.info {
+  position: relative;
+  /* padding: 0 30rpx; */
+  background-color: #fff;
+  /* margin-bottom: 10rpx; */
+}
+.info .title {
+  font-size: 36rpx;
+  font-weight: 700;
+  padding: 20rpx 30rpx;
+  border-top: 1rpx solid #f6f6f6;
+  
+}
+.styletitle {
+  border-bottom: 4rpx solid #f6f6f6;
+}
+.content {
+  font-size: 30rpx;
+  color: #ccc;
+  padding:0 30rpx 20rpx;
+  border-bottom: 10rpx solid #f6f6f6; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.stitle {
+  font-size: 36rpx;
+}
+.myweixin {
+  margin-right: 10rpx;
+}
+.myfixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 36rpx;
+}
+.cu-bar.tabbar .mymoney {
+  text-align: left;
+  justify-content: left;
+  /* font-size: 34rpx; */
+  text-indent: 30rpx;
+}
+.mymoney .text-blue {
+  font-size: 36rpx;
+}
+radio-group {
+  width: 100%;
+}

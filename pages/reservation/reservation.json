@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "约面",
+  "usingComponents": {
+    "search-page": "/component/searchPage/searchPage"}
+}

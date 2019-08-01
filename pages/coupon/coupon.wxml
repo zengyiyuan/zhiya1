@@ -1,0 +1,36 @@
+<view class="my-nav bg-white mynav fixed">
+  <view class="cu-item {{index==tabCur?'current':''}} " wx:for="{{navlist}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{item}}
+  </view>
+</view>
+<view class='used' id='couponUsed' wx:if="{{tabCur==1}}">
+  <view class="coupon-box" orderid="7" wx:for="{{coupon2}}" wx:key="index">
+   
+      <view class="left">
+        <view class="title">已观摩{{item.interviewOrderTitle}}</view>
+        <view class="time">使用时间：{{item.updateTime}}</view>
+        <view class="solid"></view>
+      </view>
+      <view class="center"></view>
+      <button class="continue-watch" data-orderid="{{item.interviewOrderId}}" catchtap='goOrderDesc'>继续观看</button>
+  </view>
+</view>
+<view class="overdue" style="" id="couponExpiredTime" wx:if="{{tabCur==0}}">
+  <view class="coupon-box finished"  wx:for="{{coupon1}}" wx:key="index">
+    <view class="left">
+      <view class="title">{{item.interviewOrderTitle}}</view>
+      <view class="time">有效期至：{{item.endTime}}</view>
+      <view class="solid"></view>
+    </view>
+  </view>
+</view>
+<view class="overdue" style="" id="couponExpiredTime" wx:if="{{tabCur==2}}">
+  <view class="coupon-box finished"  wx:for="{{coupon3}}" wx:key="index">
+    <view class="left">
+      <view class="title">{{item.interviewOrderTitle}}</view>
+      <view class="time">有效期至：{{item.endTime}}</view>
+      <view class="solid"></view>
+      <image src="../../image/img_ugq@3x.png" alt=""></image>
+    </view>
+  </view>
+</view>

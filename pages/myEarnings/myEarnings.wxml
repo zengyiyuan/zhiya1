@@ -1,0 +1,66 @@
+<view class="fixed">
+  <view class="header">
+    <image class="header-bg" src="../../image/img_income@2x.png"></image>
+    <view class="header-info">
+      <view class="info-menu">
+        <view class="info-item">
+          <text>总收益:</text>
+          <text class="count">¥{{totalMoney}}</text>
+        </view>
+        <view class="info-item">
+          <text>总观摩人数:</text>
+          <text class="count">{{totalNum}}</text>
+        </view>
+      </view>
+      <view class="info-menu">
+        <view class="info-item">
+          <text>月度收益:</text>
+          <text class="count">¥{{monthMoney}}</text>
+        </view>
+        <view class="info-item">
+          <text>月度总观摩量:</text>
+          <text class="count">{{monthNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="time-part">
+    <view class="time-item">
+        <text>时间：</text>
+        <text catchtap="pickDate" class="text-grey">
+          <text>{{year}}-{{month}}</text>
+          <text class="icon icon-unfold text-grey"></text>
+        </text>
+    </view>
+  </view>
+  <view class="list" wx:if="{{videoList&&videoList.length}}">
+    <view wx:for="{{videoList}}" wx:key="index" class="child-item">
+      <view class='image' data-orderid="{{item.dataId}}" bindtap="goOrderDesc">
+        <!-- <view vx:if="{{item.staticPrice&&item.staticPrice>0}}" class="needPay">付费</view> -->
+        <image lazy-load="true" src="{{item.dataImg}}"></image>
+      </view>
+      <view class="info">
+        <view class="title">{{item.dataName}}</view>
+        <view class="price">¥{{item.staticPrice}}</view>
+        <view class="num" data-sharecustomerid="{{item.dataCustomerId}}" data-orderid="{{item.staticId}}" bindtap='checkWatchList'>{{item.staticNum||0}}人观摩</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom' wx:if="{{videoList.length>3}}">————优秀的人也是有底线的————</view>
+<view class="pick-mask" wx:if="{{isPicking}}" bindtap='cancelPick'>
+  <view class="pick-body" catchtap="prevent">
+    <view class="pick-confirm">
+      <text class="text-grey" catchtap="cancelPick">取消</text>
+      <text class="text-cyan" catchtap="confirmPick">确定</text>
+    </view>
+    <picker-view class="pick-part" indicator-style="height: 40px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="index" style="line-height: 40px">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="index" style="line-height: 40px">{{item}}月</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

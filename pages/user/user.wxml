@@ -1,0 +1,23 @@
+<view class="cu-list menu card-menu margin-bottom-lg shadow-lg myuser" wx:if="{{!show&&!nameInput}}">
+  <view class="cu-item arrow" bindtap='getAvatar'>
+    <view class='userInfo content' >  
+       <text class='text-black name'>头像</text>
+      <image class='cu-avatar xl round' src="{{userInfo.avatarUrl}}" catchtap='showAvatar'></image>
+    </view>
+  </view>
+
+  <view class="cu-item arrow" bindtap='getNickName'>
+    <view class='content userInfo' >
+      <text class='text-black'>昵称</text>
+       <text class='text-black name'><text>{{nickName?nickName:userInfo.nickName}}</text></text>
+    </view> 
+  </view>
+</view>
+<view class='img' wx:if="{{show}}">
+  <image mode='widthFix' src="{{userInfo.avatarUrl}}" catchtap="changeBtn"></image>
+  <view catchtap="savePic" wx:if="{{btn}}">保存图片</view>
+</view>
+<view class='name' wx:if="{{nameInput}}">
+  <input value='{{nickName}}' placeholder='请输入新的昵称' maxlength='10' focus bindinput='changeValue'></input>
+  <button class='text-white bg-cyan' bindtap='saveName'>保存</button>
+</view>

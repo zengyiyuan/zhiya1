@@ -1,0 +1,14 @@
+<view class="mys">
+  <image class="pay-icon" src="../../image/icon_pay_success@2x.png"></image>
+  <view class='title text-xxl text-center padding'>
+    <text>支付成功</text>
+  </view>
+   <view class='title text-xxl text-center padding'>
+    <view class='text-gray'>你已经付款成功， </view>
+    <view class='text-gray'>约面时间到后即可和面试</view>
+  </view>
+  <view class='handle-part'>
+    <button class='pay-button line-cyan' bindtap="goIndex">继续逛逛</button>
+    <button class='pay-button line-grey text-black' bindtap="goMyOrder">查看订单</button>
+  </view>
+</view>

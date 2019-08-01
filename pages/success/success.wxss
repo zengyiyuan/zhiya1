@@ -1,0 +1,23 @@
+page {
+  height: 100%;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+.mys {
+  margin-top: 100rpx;
+  text-align: center;
+}
+.pay-icon{
+  width:120rpx;
+  height:120rpx;
+}
+.text-xxl{
+  font-size:28rpx;
+}
+.handle-part{
+  display: flex;
+  padding:40rpx;
+}
+.pay-button{
+  width:284rpx;
+}

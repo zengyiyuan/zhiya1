@@ -1,0 +1,7 @@
+<!--pages/authorize/authorize.wxml-->
+<view class='container'>
+  <!-- <image src='/pages/images/icon_logo.jpg' class='logo'></image> -->
+  <text class='title'>{{title}}</text>
+  <text class='des'>{{des}}</text>
+	<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='authorize'>微信授权登录</button>
+</view>

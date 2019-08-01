@@ -1,0 +1,46 @@
+<view class="cu-list menu card-menu margin-bottom-lg shadow-lg myuser">
+  <view class="cu-item arrow" bindtap='getUserInfo'>
+    <view class='userInfo content' >
+      <text class='text-black name'><text>{{nickName?nickName:userInfo.nickName}}</text></text>
+      <image class='cu-avatar xl round' src="{{userInfo.avatarUrl}}"></image>
+    </view>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+  <view class="cu-item arrow" bindtap='goOrder' >
+    <view class='content' >
+      <text class='icon icon-form text-green'></text>
+      <text class='text-grey'>订单</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" catchtap='goCoupon' >
+    <view class='content'>
+      <text class='icon icon-ticket text-red'></text>
+      <text class='text-grey'>优惠券</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" bindtap='goEarnings'>
+    <button class='cu-btn content'>
+      <text class='icon icon-pay text-pink'></text>
+      <text class='text-grey'>我的收益</text>
+    </button>
+  </view>
+  <view class="cu-item arrow" bindtap='goAbout'>
+    <button class='cu-btn content'>
+      <text class='icon icon-friend text-blue'></text>
+      <text class='text-grey'>我的约面安排</text>
+    </button>
+  </view>
+  <view class="cu-item arrow" bindtap='goMyFavor'>
+    <button class='cu-btn content'>
+      <text class='icon icon-favor text-cyan'></text>
+      <text class='text-grey'>我的收藏</text>
+    </button>
+  </view>
+  <view class="cu-item arrow" bindtap='getUserInfo'>
+    <button class='cu-btn content'>
+      <text class='icon icon-settings text-orange'></text>
+      <text class='text-grey'>设置</text>
+    </button>
+  </view>
+</view>

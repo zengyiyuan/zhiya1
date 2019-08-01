@@ -1,0 +1,389 @@
+/* pages/videoDesc/videoDesc.wxss *//* pages/orderDesc/orderDesc.wxss */
+.shareMask {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  overflow: hidden;
+}
+.saveShare {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 160rpx;
+  line-height: 80rpx;
+  /* z-index: 1100; */
+}
+.saveShare>view:last-child {
+  border-top: 1rpx solid #eee;
+
+}
+canvas {
+  position: fixed;
+  top: 45%;
+  width: 260px;
+  height: 400px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  z-index: 1000;
+}
+video,
+.mask{
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  background-color: #f4f4f4;
+}
+
+.fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  /* height: 225px; */
+  background-color: #f4f4f4;
+}
+
+.mask image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.mask button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0rpx 40rpx;
+  z-index: 1000;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 60rpx;
+}
+.mask .play ,.end-mask .play{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  /* background-color: transparent; */
+  border-radius:50%; 
+  padding: 30rpx;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.end-mask{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:400rpx;
+}
+.end-middle-part{
+  position: absolute;
+  z-index:10;
+  width:600rpx;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  white-space: no-wrap;
+  color:#fff;
+  text-align: center;
+}
+.end-middle-part .text{
+  font-size:28rpx;
+  line-height:40rpx;
+}
+.end-middle-part image{
+  margin-top:20rpx;
+  width:286rpx;
+  height:68rpx;
+}
+.refresh-part{
+  position:absolute;
+  right:20rpx;
+  bottom:20rpx;
+  color:#fff;
+}
+.refresh-part .icon{
+  margin-right:12rpx;
+}
+.nav {
+  height: 90rpx;
+  font-size: 33rpx;
+}
+
+.desc {
+  margin-top: 490rpx;
+  background-color: #fff;
+  padding: 10rpx 0rpx;
+}
+
+.desc .cu-avatar {
+  background-color: #fff;
+}
+
+.desc .avartar {
+  position: relative;
+  height: 128rpx;
+  /* overflow: hidden; */
+}
+
+.desc .bgavatar, .desc .avatar1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.desc .avatar1 {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.desc .cu-item {
+  border: 1rpx solid #fff;
+}
+
+.pk {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 相关面约 */
+
+.hot {
+  /* margin-top: 120rpx; */
+  background-color: #fff;
+}
+
+.face {
+  margin-top: 18rpx;
+}
+
+.hot .title {
+  padding: 30rpx;
+  position: relative;
+}
+
+.hot .title text{
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+}
+.share-order{
+  padding: 30rpx;
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 700;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.share-order .iconshare{
+  padding:8rpx;
+}
+.order-info .title {
+  padding: 30rpx;
+  position: relative;
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+}
+.order-info .order-image {
+  position: relative;
+  padding: 0 30rpx;
+}
+.order-info .order-image image{
+  width:100%;
+  height:360rpx;
+  border-radius:20rpx;
+}
+.order-info .need-pay{
+  position:absolute;
+  z-index:1;
+  right:60rpx;
+  top:0;
+  padding:0 10rpx;
+  font-size:24rpx;
+  line-height:36rpx;
+  color:#fff;
+  background:#eab94a;
+  border-radius: 0 0 12rpx 12rpx;
+}
+.video-desc{
+  padding: 20rpx 30rpx;
+  font-size: 24rpx;
+}
+.hot .title .icon {
+  position: absolute;
+  right: 30rpx;
+  color: #ddd;
+  margin-top: 10rpx;
+}
+
+.cu-card.case .image .cu-tag {
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+}
+
+.cu-card.case .image .cu-bar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  background-color: transparent;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot .image .cu-bar text {
+  position: absolute;
+  bottom: 10rpx;
+  right: 20rpx;
+  text-align: right;
+}
+
+.hot .cu-list.menu-avatar>.cu-item {
+  padding-left: 0rpx;
+  height: 110rpx;
+  color: #000;
+}
+
+.hot .text-grey, .line-grey, .lines-grey {
+  color: #000;
+}
+
+.hot .text-gray, .line-gray, .lines-gray {
+  color: #8799a3;
+}
+
+.hot .image {
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.hot .cu-card>.cu-item {
+  margin: 0rpx 30rpx;
+  border-radius: 10rpx;
+}
+
+.info {
+  /* padding: 0 30rpx; */
+  background-color: #fff;
+  border-bottom:10rpx solid #f6f6f6;
+}
+
+
+.info .content {
+  padding: 30rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid #f6f6f6;
+}
+
+.sTitle {
+  padding-bottom: 20rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.subcontent {
+  /* text-overflow:-o-ellipsis-lastline; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.mysearch {
+  position: fixed;
+  top: none;
+  bottom: 0;
+  width: none;
+}
+.comment {
+  margin-top: 490rpx;
+}
+
+.mystatu>text {
+  padding-right: 13rpx;
+}
+.bottom {
+  text-align: center;
+  color: #bbb;
+  padding: 30rpx;
+}
+.face .cu-card.case {
+  margin: 0 30rpx;
+}
+.face .cu-card.case>.cu-item {
+  margin: 0;
+}
+.face .cu-card>.cu-item:nth-of-type(2n+1) {
+  padding-right: 10rpx;
+}
+.face .cu-card>.cu-item:nth-of-type(2n) {
+  padding-left: 10rpx;
+}
+.face {
+  margin-bottom:160rpx; 
+}
+.face .image,.face .image image {
+  height: 194rpx;
+}
+.facetitle ,
+.facewriter {
+   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space:nowrap;
+  /* height: 500rpx; */
+}
+.mystatu image {
+  width: 62rpx;
+  height: 56rpx;
+  margin-right: 10rpx;
+}
+.mybuttom {
+  min-height: 100rpx;
+  padding: 20rpx 0;
+}
+.mybuttom .mytextarea {
+  min-height: 100rpx;
+  background:#f5f5f5;
+  max-height:192rpx;
+  
+font-size:24rpx;
+color:#666;
+flex:1;
+display:flex;
+align-items:center;
+margin:0 20rpx;
+
+}
+.mybuttom .mytextarea textarea {
+  height: 100%;
+}
+.mybuttom .mytextarea .overhidden {
+  flex: 1;
+  max-height: 192rpx;
+  overflow: hidden;
+}
+/* .focusInput,
+.mybuttom ,
+.mybuttom .search-form {
+  height: 128rpx!important;
+} */

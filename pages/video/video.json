@@ -1,0 +1,4 @@
+{
+  "navigationBarTitleText": "视频",
+  "usingComponents": {"search-page":"/component/searchPage/searchPage"}
+}

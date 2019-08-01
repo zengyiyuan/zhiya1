@@ -1,0 +1,24 @@
+<view class="cu-bar search bg-white mysearch">
+  <view class='search-form round myform' bind:tap="onFocus">
+    <view class='search text-xl' wx:if="{{!flag||words.length>0}}">
+      <input type="text" class='my-input' placeholder="搜索约面/视频" confirm-type="search" bindconfirm="gosearch" value='{{words}}' bindinput='onChange' bindfocus='onFocus'></input>
+      <text class="icon icon-search text-xl" catchtap='gosearch'></text>
+    </view>
+    <text class='searchwords' wx:if="{{flag}}"><text class="icon icon-search"></text>搜索约面/视频</text>
+  </view>
+  <view class='action' wx:if="{{!flag||words}}">
+    <view class='cu-btn  shadow-blur round' bindtap='cancel'>取消</view>
+  </view>
+</view>
+<view class='searchDetail' wx:if="{{!flag}}">
+  <view class='myhot'>热门搜索</view>
+  <view class='box'>
+    <view class="{{index==barCur?'current bar':'bar'}}" wx:for="{{hotwords}}" wx:key="index" bindtap='changeCur' data-id="{{index}}">{{item}}</view>
+  </view>
+  <view class='hr'>
+  </view>
+  <view class='history'>
+    <text>历史搜索</text>
+    <icon class='icon icon-delete'></icon>
+  </view>
+</view>

@@ -1,0 +1,215 @@
+
+<!-- 视频框 -->
+<view class='fixed'>
+  <video wx:if="{{isPlay}}" src="{{orderDesc.experVedioUrl}}" object-fit="contain" bindended="handlePlayEnd" enable-play-gesture="true" controls poster="{orderDesc.orderImg}}" fixed='true' autoplay show-fullscreen-btn="true"></video>
+  <view wx:if="{{!isPlay}}" class='mask'>
+    <image lazy-load="true" src="{{orderDesc.orderImg}}"></image>
+    <view wx:if="{{isbuy===0&&!isEnd&&isOpen}}" class="playing-text">
+      <text>该视频可试看3分钟</text>
+    </view>
+
+    <view wx:if="{{isbuy===0&&!isEnd&&!isOpen&&isIos}}" class="playing-text">
+      <text>可试看3分钟，因相关政策，观看完整版可进入公众号搜索“职芽服务号”</text>
+    </view>
+    <view wx:if="{{isbuy===0&&!isEnd&&!isOpen&&!isIos}}" class="playing-text">
+      <text>可试看3分钟,观看完整版</text>
+      <text class="text-cyan pay-text" bindtap="toOrderPay">请购买</text>
+    </view>
+
+    <view wx:if="{{isbuy==0&&isEnd&&isOpen}}" class="need-pay-part">
+      <view class="text">十分抱歉，由于相关规范，您暂时无法在这里购买</view>
+    </view>
+    <view wx:if="{{isbuy==0&&isEnd&&!isOpen&&isIos}}" class="need-pay-part">
+      <view class="text">因相关规范，暂时无法在这里购买。如需观看可进入公众号，搜索“职芽服务号”</view>
+    </view>
+    <view wx:if="{{isbuy==0&&isEnd&&!isOpen&&!isIos}}" class="need-pay-part">
+      <view class="text">职芽付费视频，观看完整版请购买</view>
+      <button catchtap="toOrderPay" class='cu-btn round bg-cyan'>¥{{orderDesc.inspectPrice}} 付费观摩</button>
+    </view>
+
+    <view class="watch-num">
+        <text catchtap='toPlay' wx:if="{{isEnd}}" class="refresh-part">
+          <text class='icon icon-refresh'></text>
+          <text>重播</text>
+        </text>
+        {{orderDesc.watchNum}} 观摩
+    </view>
+    <view catchtap='toPlay' class='play' wx:if="{{!isEnd}}">
+        <text class='icon icon-playfill text-white text-xxl'></text>
+    </view>
+    <view catchtap='toPlay' class='play' wx:if="{{isEnd&&isbuy===1}}">
+        <text class='icon icon-playfill text-white text-xxl'></text>
+    </view>
+  </view>
+  <!-- tab切换 -->
+  <scroll-view scroll-x class="bg-white nav">
+    <view class='flex text-center'>
+      <view class="cu-item flex-sub {{index==TabCur?'text-cyan cur':''}}" wx:for="{{tab}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+        {{ item}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 不同tab下的内容 -->
+<!-- 商品详细 -->
+<view class='desc' wx:if="{{TabCur==0}}">
+  <view class="cu-list grid col-3">
+    <view class="cu-item ">
+      <view class='avartar' data-id="{{orderDesc.customerId}}" bindtap="checkUserDetail">
+        <image lazy-load="true"class='lg cu-avatar avatar1' src="{{orderDesc.customerHeadPortrait}}"></image>
+        <image lazy-load="true"class='xl cu-avatar bgavatar' src="../../image/avatar1.png"></image>
+      </view>
+      <text>{{orderDesc.customerName}}</text>
+      <text>{{orderDesc.university}}{{orderDesc.profession}}</text>
+    </view>
+    <view class="cu-item pk">
+      <view>
+        <image lazy-load="true"class='cu-avatar' src="../../image/recipe.png"></image>
+      </view>
+      <text>{{orderDesc.applicationPosition}}</text>
+    </view>
+    <view class="cu-item ">
+      <view class='avartar' data-id="{{orderDesc.interviewerCustomerId}}" bindtap="checkUserDetail">
+        <image lazy-load="true"class='lg cu-avatar avatar1' src="{{orderDesc.interviewerHeadPortrait}}"></image>
+        <image lazy-load="true"class='xl cu-avatar bgavatar' src="../../image/avatar2.png"></image>
+      </view>
+
+      <text>{{orderDesc.interviewerName}}</text>
+      <text>{{orderDesc.interviewerCompany}}{{orderDesc.interviewerPosition}}</text>
+    </view>
+  </view>
+  <!-- 面试简介 -->
+  <view class='info'>
+    <view class='title share-order'>
+      <text>{{orderDesc.title}}</text>
+      <text catchtap='changeshare' wx:if="{{canShare}}" class='icon icon-share lg iconshare text-cyan'></text>
+    </view>
+    <view class='title bio' wx:if="{{orderDesc.jianliUrl}}">
+      <text>简历</text>
+      <text class="check" data-url="{{orderDesc.jianliUrl}}" bindtap="viewBio"><text class="{{bioStatus?'icon icon-fold':'icon icon-unfold'}} text-gray"></text></text>
+    </view>
+    <view wx:if="{{bioStatus}}">
+      <image class="bio-img" src="{{orderDesc.jianliUrl}}"></image>
+    </view>
+    <view class='content'>
+      <view class='sTitle'>面试简介</view>
+      <text class='{{isMore?"icon icon-fold":"icon icon-unfold"}} text-xxl more' catchtap='showMore'></text>
+      <view class='{{isMore?"":"subcontent"}}'>
+        {{orderDesc.detail}}
+      </view>
+    </view>
+  </view>
+  <!-- 相关面约 -->
+  <view class="hot about">
+    <view class="meeting-mode">
+      <view class="title">
+        <text>相关约面</text>
+      </view>
+      <view class="meeting-container" id="interviewOrderVedioList">
+        <view class="cu-card case {{isCard?'no-card':''}}">
+          <view wx:for="{{orderList}}" wx:key="index" class="cu-item" data-id="{{item.orderId}}" bindtap="goOrderDesc">
+          <view wx:if="{{!isOpen&&item.inspectPrice&&item.inspectPrice>0}}" class="needPay">付费</view>
+            <view class='image'>
+              <image lazy-load="true"src="{{item.orderImg}}" mode="widthFix"></image>
+              <!-- <view class="cu-tag bg-yellow">福利</view> -->
+              <view class='cu-bar bg-shadeBottom'>
+                <text>{{item.inspectNum||0}}人观看</text>
+              </view>
+            </view>
+            <view class="cu-list menu menu-avatar">
+              <view class="cu-item">
+                <view class='content flex-sub'>
+                  <view class='text-grey detail-title text-half-overhide'>{{item.title}}</view>
+                  <view class='text-gray text-sm flex justify-between text-half-overhide'>
+                    {{item.keyWords}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 评论 -->
+<view class='comment' wx:if="{{TabCur==1}}">
+  <view class="cu-list menu menu-avatar comment solids-top">
+    <view class="cu-item" wx:for="{{commentList}}" wx:key="index">
+      <view class="cu-avatar round" style="background-image:url({{item.customerHeadPortrait}});"></view>
+      <view class='content'>
+        <view class='text-grey'>{{item.customerName}}</view>
+        <view class='text-gray text-content text-df'>
+          {{item.evaluateContent}}
+        </view>
+       
+        <view class='margin-top-sm flex justify-between'>
+          <view class='text-gray text-df'>{{item.createDate}}</view>
+          <view>
+            <!-- <text class="icon icon-appreciate{{!isZan?'fill':''}} text-{{!isZan?'red':'gray'}}"></text>
+            <text class="icon icon-messagefill text-gray margin-left-sm" bandtap="comment"></text> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 底部评论bar -->
+<view class='bottom'>————优秀的人也是有底线的————</view>
+<view class="cu-bar bg-white search mybuttom" style='position:fixed; bottom:0;width: 750rpx;' wx:if="{{isbuy==1&!shareShow}}">
+    <view class="cu-form-group top round mytextarea" >
+    <view class='title icon icon-write text-xxl'></view>
+    <view class='overhidden'>
+    <textarea placeholder="说点什么吧" maxlength="-1" placeholder-class='placeholder' auto-height='true'  value='{{defaultValue}}' bindinput="setValue" bindfocus='changeFocus' class='{{isFocus?"focusInput":""}}' fixed='true' show-confirm-bar="false"></textarea>
+    </view>
+  </view>
+  <view class='text-xxl mystatu' wx:if="{{!isFocus}}">
+    <text class="icon icon-favor{{isFavor?'fill':''}} text-{{isFavor?'cyan':'gray'}}" catchtap='setFavor'></text>
+    <text class=" icon icon-appreciate{{isZan?'fill':''}} text-{{isZan?'cyan':'gray'}}" catchtap='setZan'></text>
+  </view>
+  <view class='text-xxl mystatu' wx:if="{{isFocus}}" catchtap='toComment'>
+    <image lazy-load="true"src="../../image/iconsend.png" ></image>
+  </view>
+
+</view>
+<view class="cu-bar bg-white search mybuttom" style='position:fixed; z-index:1;bottom:0;width: 750rpx;' wx:if="{{isbuy==1&!shareShow}}">
+    <view class="cu-form-group top round mytextarea">
+    <view class='title icon icon-write text-xxl'></view>
+    <view class='overhidden'>
+    <textarea placeholder="说点什么吧" maxlength="-1" placeholder-class='placeholder' auto-height='true'  value='{{defaultValue}}' bindinput="setValue" bindfocus='changeFocus' class='{{isFocus?"focusInput":""}}' fixed='true' show-confirm-bar="false"></textarea>
+    </view>
+  </view>
+  <view class='text-xxl mystatu' wx:if="{{!isFocus}}">
+    <text class="icon icon-favor{{isFavor?'fill':''}} text-{{isFavor?'cyan':'gray'}}" catchtap='setFavor'></text>
+    <text class=" icon icon-appreciate{{isZan?'fill':''}} text-{{isZan?'cyan':'gray'}}" catchtap='setZan'></text>
+  </view>
+  <view class='text-xxl mystatu' wx:if="{{isFocus}}" catchtap='toComment'>
+    <image lazy-load="true"src="../../image/iconsend.png" ></image>
+  </view>
+
+</view>
+
+<view hidden="{{!shareShow}}">
+  <view class='shareMask' catchtouchmove='true' >
+    <view class='saveShare text-center text-blue bg-white text-xl'>
+      <view bindtap='previewImg'>保存图片分享至朋友圈</view>
+      <view catchtap='hideshare'>取消</view>
+    </view>
+  </view>
+  <canvas canvas-id='share' disable-scroll="false" bindtouchmove="true" style='width:{{screenWidth}}px;height:{{screenHeight}}px'></canvas>
+</view>
+<!-- 弹框提示 -->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>提示</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon icon-close text-cyan'></text>
+      </view>
+    </view>
+    <view class='padding-xl'>
+      请输入评论内容
+    </view>
+  </view>
+</view>
